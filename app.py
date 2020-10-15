@@ -21,10 +21,7 @@ client = Client()
 
 def get_sent_messages():
     # Return a collection of messages that were sent from the number
-    messages = []
-    
-    for msg in client.messages.list():
-      messages.append(msg)
+    messages = client.messages.list(from_=TWILIO_PHONE_NUMBER)
     return messages
 
 def send_message(to, body):
